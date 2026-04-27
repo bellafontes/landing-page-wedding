@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary-rose: #A34343;
+  --color-secondary-pink: #E58E8E;
+  --color-bg-creme: #FCF9F9;
+  --color-text-gray: #5A5A5A;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-bg-creme);
+    color: var(--color-text-gray);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Fallback para a seleção de texto sem usar o apply do tailwind */
+  ::selection {
+    background-color: #ffe4e6; /* rose-100 */
+    color: #A34343;
+  }
+}
+
+@layer components {
+  .paper-texture {
+    background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+  }
+
+  .action-btn-circle {
+    @apply w-20 h-20 rounded-full flex items-center justify-center
+    bg-[--color-primary-rose] text-white shadow-lg transition-all duration-300
+    hover:bg-[--color-secondary-pink] hover:scale-105 active:scale-95;
+  }
+}
+
+@keyframes fadeInFloral {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 0.8; transform: translateY(0); }
+}
+
+.floral-fade {
+  animation: fadeInFloral 1.5s ease-out forwards;
+}
